@@ -12,3 +12,9 @@ group by category
 select category, count(sales)
 from minipurchases
 group by category
+
+--4. 
+select category, count(sales)
+from minipurchases
+where category in ("Computers", "Cameras", "Video Games")
+group by category
