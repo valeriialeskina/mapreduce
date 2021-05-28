@@ -1,20 +1,31 @@
 -- 1. 
-select payment, sum(sales)
+select payment, sum(sales) as sales
 from minipurchases
 group by payment
 
 --2. 
-select category, sum(sales)
+select category, sum(sales) as sales
 from minipurchases
 group by category
 
 --3.
-select category, count(sales)
+select category, count(sales) as count
 from minipurchases
 group by category
 
 --4. 
-select category, count(sales)
+select category, count(sales) as count
 from minipurchases
 where category in ("Computers", "Cameras", "Video Games")
+group by category
+
+--5. 
+select category, count(sales) as count
+from minipurchases
+group by category
+having count > 114
+
+--6. 
+select category, avg(sales) as avg_sales
+from minipurchases
 group by category

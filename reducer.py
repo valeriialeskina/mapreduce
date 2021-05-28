@@ -40,20 +40,23 @@ for line in sys.stdin:
     # is the new key different than the previous key?
     # This means the line starts with a new key (key changes e.g. from "Visa" to "Cash")
     # Remember that our keys are sorted
-    if previous_key != None and previous_key != key and sum_of_values > 114:
+    if previous_key != None and previous_key != key:
         # Then write the result of the old key (Key=category, Value= Sum of Sales)
         # to the standart output (stdout)
         # Key and value are seperated by a tab (\t)
         # Line ends with new line (\n)
-        sys.stdout.write("{0}\t{1}\n".format(previous_key, sum_of_values))
+        sys.stdout.write("{0}\t{1}\n".format(previous_key, average))
         # Sum of sales starts again with 0
         sum_of_values = 0
+        counts =0
 
     # Add the value to the total sales
     # a += b is the same as a = a + b
     # the float function transforms the value
     # to a float data type (like decimal)
-    sum_of_values += 1
+    sum_of_values += value
+    counts += 1
+    average = sum_of_values / counts
     # the previous key for the next iteration is the current key of the this iteration 
     previous_key = key
 
