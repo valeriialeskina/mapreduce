@@ -1,0 +1,14 @@
+-- 1. 
+select payment, sum(sales)
+from minipurchases
+group by payment
+
+--2. 
+select category, sum(sales)
+from minipurchases
+group by category
+
+--3.
+select category, count(sales)
+from minipurchases
+group by category
